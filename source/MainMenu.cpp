@@ -12,7 +12,7 @@ tsl::elm::Element* MainMenu::createUI() {
 
     auto favorites = new tsl::elm::ListItem("Favorites");
     favorites->setClickListener([](s64 keys) {
-        if (keys & KEY_A) {
+        if (keys & HidNpadButton_A) {
             tsl::changeTo<FavoritesMenu>();
             return true;
         }
@@ -22,7 +22,7 @@ tsl::elm::Element* MainMenu::createUI() {
 
     auto fileSelect = new tsl::elm::ListItem("Browse...");
     fileSelect->setClickListener([](s64 keys) {
-        if (keys & KEY_A) {
+        if (keys & HidNpadButton_A) {
             tsl::changeTo<FileSelect>("sdmc:/");
             return true;
         }
@@ -32,7 +32,7 @@ tsl::elm::Element* MainMenu::createUI() {
 
     auto help = new tsl::elm::ListItem("Help");
     help->setClickListener([](s64 keys) {
-        if (keys & KEY_A) {
+        if (keys & HidNpadButton_A) {
             tsl::changeTo<HelpMenu>();
             return true;
         }
@@ -46,10 +46,10 @@ tsl::elm::Element* MainMenu::createUI() {
 }
 
 bool MainMenu::handleInput(u64 keysDown, u64 keysHeld, const HidTouchState &touchPos, HidAnalogStickState leftJoyStick, HidAnalogStickState rightJoyStick) {
-    if (!m_debug && (keysDown & KEY_MINUS)) {
+    if (!m_debug && (keysDown & HidNpadButton_Minus)) {
         auto logMenu = new tsl::elm::ListItem("Show Logs");
         logMenu->setClickListener([](s64 keys) {
-            if (keys & KEY_A) {
+            if (keys & HidNpadButton_A) {
                 tsl::changeTo<LogMenu>();
                 return true;
             }

@@ -59,11 +59,11 @@ tsl::elm::Element* FileSelect::createUI() {
     for (auto it = m_entries.begin(); it != m_entries.end(); ++it) {
         auto item = new tsl::elm::ListItem((*it)->label());
         item->setClickListener([it, item](u64 keys) {
-            if (keys & KEY_A) {
+            if (keys & HidNpadButton_A) {
                 (*it)->select();
                 return true;
             }
-            else if (keys & KEY_Y) {
+            else if (keys & HidNpadButton_Y) {
                 (*it)->toggleFavorite();
                 item->setText((*it)->label());
                 return true;
