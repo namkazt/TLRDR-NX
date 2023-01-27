@@ -216,8 +216,8 @@ release:	$(RELEASE_ZIP)
 
 $(RELEASE_ZIP): $(OUTPUT).ovl
 	rm -rf sdfiles/
-	mkdir -p sdfiles/switch/.overlays/TextReaderOverlay/
+	mkdir -p sdfiles/switch/.overlays/tlrdr/
 	cp $(OUTPUT).ovl sdfiles/switch/.overlays/
-	cp -r package/* sdfiles/switch/.overlays/TextReaderOverlay/
+	cp -r package/* sdfiles/switch/.overlays/tlrdr/
 	cd sdfiles/ && zip -r ../$(RELEASE_ZIP) * && cd ..
 	rm -rf sdfiles/
